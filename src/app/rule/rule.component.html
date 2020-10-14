@@ -9,7 +9,12 @@
           {{ pageOption.label }}
         </option>
       </select>
-      <span *ngIf="!isLast">OR</span>
+      <span
+        *ngIf="
+          this.ruleKeyGroup.indexOf(this.key) < this.ruleKeyGroup.length - 1
+        "
+        >OR</span
+      >
     </div>
     <select
       *ngIf="ruleForm.controls.page.value === '4'"

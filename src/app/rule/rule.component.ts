@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, EventEmitter, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 import { Operators, PageOptions, InitialRuleValue } from 'src/utils/contants';
 import { OperatorType, PageOptionType } from 'src/utils/types';
@@ -12,8 +12,8 @@ import { OperatorType, PageOptionType } from 'src/utils/types';
 })
 export class RuleComponent implements OnInit {
 
-  @Input() index: number;
-  @Input() isLast: boolean = false;
+  @Input() key: string;
+  @Input() ruleKeyGroup: string[];
   @Output() removeEmitter = new EventEmitter<number>();
   @Output() formUpdateEmitter = new EventEmitter<any>();
 
@@ -28,18 +28,22 @@ export class RuleComponent implements OnInit {
     url: [InitialRuleValue.url]
   });
 
-  private formUpdatedSource = new Subject<any>();
-  private formUpdated$ = this.formUpdatedSource.asObservable();
+  private formUpdatedSource: Subject<any> = new Subject<any>();
+  private formUpdated$: Observable<any> = this.formUpdatedSource.asObservable();
 
   constructor(
     private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
-    this.formUpdated$.subscribe(data => this.formUpdateEmitter.emit({index: this.index, data}));
+    this.formUpdated$.subscribe(data => this.formUpdateEmitter.emit({index: this.ruleKeyGroup.indexOf(this.key), data}));
   }
 
-  changeURL() {
+  ngOnDestory(): void {
+    this.formUpdatedSource.unsubscribe();
+  }
+
+  changeURL(): void {
     if (this.ruleForm.controls.url.value) {
       this.validURL = true;
     } else {
@@ -48,11 +52,11 @@ export class RuleComponent implements OnInit {
     this.updateFormValues();
   }
 
-  removeClick() {
-    this.removeEmitter.emit(this.index);
+  removeClick(): void {
+    this.removeEmitter.emit(this.ruleKeyGroup.indexOf(this.key));
   }
 
-  updateFormValues() {
+  updateFormValues(): void {
     this.formUpdatedSource.next(this.ruleForm.getRawValue());
   }
 }

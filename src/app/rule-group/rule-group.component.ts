@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { idGen } from 'src/utils';
 import { InitialRuleValue } from 'src/utils/contants';
 
 @Component({
@@ -9,8 +10,7 @@ import { InitialRuleValue } from 'src/utils/contants';
 })
 export class RuleGroupComponent implements OnInit {
 
-  public lastIndex: number = 0;
-  public ruleIndexGroup: number[] = [0];
+  public ruleKeyGroup: string[] = [idGen()];
   public ruleValueGroup: Array<any> = [
     InitialRuleValue
   ];
@@ -20,17 +20,17 @@ export class RuleGroupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addRule() {
-    this.lastIndex++;
-    this.ruleIndexGroup.push(this.lastIndex);
+  addRule(): void {
+    this.ruleKeyGroup.push(idGen());
     this.ruleValueGroup.push(InitialRuleValue);
   }
 
-  removeRule(index: number) {
-    this.ruleIndexGroup.splice(index, 1);
+  removeRule(index: number): void {
+    this.ruleKeyGroup.splice(index, 1);
+    this.ruleValueGroup.splice(index, 1);
   }
 
-  updateFormData(event) {
+  updateFormData(event): void {
     const { index, data } = event;
     this.ruleValueGroup[index] = data;
   }

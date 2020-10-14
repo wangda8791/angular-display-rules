@@ -1,8 +1,8 @@
 <div class="rule-group">
-  <div *ngFor="let i of ruleIndexGroup">
+  <div *ngFor="let key of ruleKeyGroup">
     <app-rule
-      [index]="i"
-      [isLast]="i === ruleIndexGroup.length - 1"
+      [key]="key"
+      [ruleKeyGroup]="ruleKeyGroup"
       (removeEmitter)="removeRule($event)"
       (formUpdateEmitter)="updateFormData($event)"
     ></app-rule>
