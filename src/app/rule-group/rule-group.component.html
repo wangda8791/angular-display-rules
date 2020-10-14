@@ -1,0 +1,10 @@
+<div class="rule-group">
+  <div *ngFor="let i of ruleIndexGroup">
+    <app-rule
+      (removeEmitter)="removeRule($event)"
+      [index]="i"
+      [isLast]="i === ruleIndexGroup.length - 1"
+    ></app-rule>
+  </div>
+  <button (click)="addRule()">+ NEW RULE</button>
+</div>
