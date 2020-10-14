@@ -1,0 +1,53 @@
+.rule-form {
+  display: flex;
+
+  select {
+    font-size: 16px;
+    height: 30px;
+    margin-right: 20px;
+    padding: 4px;
+    width: 180px;
+  }
+
+  button {
+    border: 1px solid black;
+    border-radius: 20px;
+    font-size: 12px;
+    height: 20px;
+    margin-top: 4px;
+    width: 20px;
+  }
+
+  input {
+    font-size: 16px;
+    margin-right: 20px;
+    padding: 4px;
+    width: 360px;
+  }
+
+  .group {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      color: #bfbbbb;
+      padding: 16px 24px;
+    }
+
+    span.error-msg {
+      background-color: #f5d3db;
+      border-radius: 4px;
+      color: #641a2c;
+      padding: 16px;
+      width: 340px;
+    }
+  }
+
+  button:focus,
+  input:focus,
+  select:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+    outline: 0;
+  }
+}
