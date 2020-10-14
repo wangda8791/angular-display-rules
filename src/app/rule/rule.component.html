@@ -1,7 +1,7 @@
 <form [formGroup]="ruleForm">
   <div class="rule-form">
     <div class="group">
-      <select formControlName="page">
+      <select formControlName="page" (change)="updateFormValues()">
         <option
           *ngFor="let pageOption of pageOptions"
           [value]="pageOption.value"
@@ -14,6 +14,7 @@
     <select
       *ngIf="ruleForm.controls.page.value === '4'"
       formControlName="operator"
+      (change)="updateFormValues()"
     >
       <option *ngFor="let operator of operators" [value]="operator.value">
         {{ operator.label }}

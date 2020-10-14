@@ -31,3 +31,9 @@ export const Operators = [
     label: 'Exact match',
   },
 ];
+
+export const InitialRuleValue = {
+  page: 0,
+  operator: 0,
+  url: ''
+}
