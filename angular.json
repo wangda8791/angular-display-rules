@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-display-rules"
+    }
+  },
+  "defaultProject": "angular-display-rules",
+  "cli": {
+    "analytics": false
+  }
 }

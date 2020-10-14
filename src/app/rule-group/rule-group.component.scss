@@ -1,7 +1,11 @@
 .rule-group {
+  .rule-container {
+    margin-bottom: 40px;
+  }
   button {
-    height: 30px;
-    margin-top: 40px;
-    width: 130px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #85a4c2;
+    border-radius: 4px;
   }
 }

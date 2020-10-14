@@ -1,11 +1,9 @@
 <div class="rule-group">
-  <div *ngFor="let key of ruleKeyGroup">
-    <app-rule
-      [key]="key"
-      [ruleKeyGroup]="ruleKeyGroup"
-      (removeEmitter)="removeRule($event)"
-      (formUpdateEmitter)="updateFormData($event)"
-    ></app-rule>
+  <div class="rule-container">
+    <div *ngFor="let key of ruleKeyGroup">
+      <app-rule [key]="key" [ruleKeyGroup]="ruleKeyGroup" (removeEmitter)="removeRule($event)"
+        (formUpdateEmitter)="updateFormData($event)"></app-rule>
+    </div>
   </div>
   <button (click)="addRule()">+ NEW RULE</button>
 </div>
