@@ -2,40 +2,26 @@
   <div class="rule-form">
     <div class="group">
       <select formControlName="page" (change)="updateFormValues()">
-        <option
-          *ngFor="let pageOption of pageOptions"
-          [value]="pageOption.value"
-        >
+        <option *ngFor="let pageOption of pageOptions" [value]="pageOption.value">
           {{ pageOption.label }}
         </option>
       </select>
-      <span
-        *ngIf="
+      <p class="or" *ngIf="
           this.ruleKeyGroup.indexOf(this.key) < this.ruleKeyGroup.length - 1
-        "
-        >OR</span
-      >
+        ">OR</p>
     </div>
-    <select
-      *ngIf="ruleForm.controls.page.value === '4'"
-      formControlName="operator"
-      (change)="updateFormValues()"
-    >
-      <option *ngFor="let operator of operators" [value]="operator.value">
-        {{ operator.label }}
-      </option>
-    </select>
+    <div class="group">
+      <select *ngIf="ruleForm.controls.page.value === '4'" formControlName="operator" (change)="updateFormValues()">
+        <option *ngFor="let operator of operators" [value]="operator.value">
+          {{ operator.label }}
+        </option>
+      </select>
+    </div>
     <div class="group" *ngIf="ruleForm.controls.page.value === '4'">
-      <input
-        type="text"
-        formControlName="url"
-        required
-        (keyup)="changeURL()"
-        (blur)="changeURL()"
-        placeholder="Type a full or partial URL"
-      />
-      <span *ngIf="!validURL" class="error-msg">URL is missing</span>
+      <input type="text" formControlName="url" required (keyup)="changeURL()" (blur)="changeURL()"
+        placeholder="Type a full or partial URL" />
+      <span *ngIf="!validURL" class="error-msg">URL is Missing</span>
     </div>
-    <button (click)="removeClick()">&#215;</button>
+    <a class="btn" (click)="removeClick()">&#215;</a>
   </div>
 </form>

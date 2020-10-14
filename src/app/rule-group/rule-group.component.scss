@@ -1,11 +1,27 @@
 .rule-group {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
   .rule-container {
-    margin-bottom: 40px;
+    margin-bottom: 25px;
   }
+
   button {
     font-weight: bold;
     padding: 10px 20px;
     border: 2px solid #85a4c2;
+    background-color: white;
     border-radius: 4px;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: #dde1e9;
+      border-color: #dde1e9;
+    }
   }
 }
