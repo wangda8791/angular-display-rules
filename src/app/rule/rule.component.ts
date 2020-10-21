@@ -57,6 +57,11 @@ export class RuleComponent implements OnInit {
   }
 
   updateFormValues(): void {
+    if (this.ruleForm.controls.page.value !== '4') {
+      this.ruleForm.controls.operator.setValue(0);
+      this.ruleForm.controls.url.setValue('');
+      this.validURL = true;
+    }
     this.formUpdatedSource.next(this.ruleForm.getRawValue());
   }
 }
