@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-display-rules';
-  sub_title = 'Display Rules'
+  header = 'Display Rules'
 }

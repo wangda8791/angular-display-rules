@@ -1,10 +1,11 @@
-.solid-divier {
-  border: 1px solid #e6e6e6;
-}
-
-.container {
-  border: 1px solid #e6e6e6;
-  border-radius: 4px;
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 2px 8px #33333320;
   margin: 20px;
-  padding: 20px;
+  padding-bottom: 20px;
+
+  .container {
+    width: 100%;
+  }
 }

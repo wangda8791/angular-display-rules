@@ -1,5 +1,13 @@
-<app-header [title]="sub_title"></app-header>
-<hr class="solid-divier" />
-<div class="container">
-  <app-rule-group></app-rule-group>
+<div class="card">
+  <app-header [title]="header"></app-header>
+  <div class="container">
+    <app-rule-group
+      [ruleTitle]="'Incluesion Rules'"
+      [ruleDesc]="'Where would you like to display your campaign?'"
+    ></app-rule-group>
+    <app-rule-group
+      [ruleTitle]="'Exclusion Rules'"
+      [ruleDesc]="'Where would you like to NOT display your campaign?'"
+    ></app-rule-group>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { idGen } from 'src/utils';
 import { InitialRuleValue } from 'src/utils/contants';
@@ -9,6 +9,9 @@ import { InitialRuleValue } from 'src/utils/contants';
   styleUrls: ['./rule-group.component.scss']
 })
 export class RuleGroupComponent implements OnInit {
+
+  @Input() ruleTitle: string = '';
+  @Input() ruleDesc: string = '';
 
   public ruleKeyGroup: string[] = [idGen()];
   public ruleValueGroup: Array<any> = [

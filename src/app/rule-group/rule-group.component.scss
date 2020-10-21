@@ -1,7 +1,20 @@
-.rule-group {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+.rule {
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  box-shadow: 3px 3px 1px #66666610;
+  margin: 20px 20px 0 20px;
+  padding: 20px;
+
+  .rule-title {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .rule-description {
+    color: #656565;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
 
   .rule-container {
     margin-bottom: 25px;
